@@ -11,7 +11,7 @@ on:
 jobs:
   Read-configuration:
     name: 🏧 Parse *.config.json
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     outputs:
       CONFIGS: ${{ steps.generate-matrix.outputs.CONFIGS }}
       BUILD_DATE: ${{ steps.generate-builddate.outputs.BUILDDATE }}
@@ -35,7 +35,7 @@ jobs:
 
   Build-TWRP:
     name: 🛄 Build TWRP
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs:
       - Read-configuration
     strategy:
@@ -108,7 +108,7 @@ jobs:
           lunch ${{ env.DEVICE_MAKEFILE }}-eng && mka adbd ${{ env.DEVICE_BOOT_PARTITION }}image -j$(nproc --all)
 
       - name: ♑Take the OrangeFox build
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: OrangeFox
           if-no-files-found: warn
