@@ -3,7 +3,7 @@
       "kernelSource": {
         "name": "OPPOA8",
         "repo": "https://github.com/JustLikeCheese/android_kernel_oppo_OP4AED",
-        "branch": "master",
+        "branch": "halium",
         "device": "OP4AED",
         "defconfig": "oppo6765_19181_defconfig"
       },
